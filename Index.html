@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Programacion III</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    <style>
+        #misdatos {
+            text-align: center;
+			padding-bottom: 10px;
+        }
+
+        button {
+            border: none; 
+            color: white; 
+            padding: 14px 28px; 
+            cursor: pointer; 
+            border-radius: 5px;
+            background-color: #007bff; 
+        }
+
+        body {
+            background-color: lightblue;
+        }
+
+        table {     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;    margin: 45px;     width: 480px; text-align: left;    border-collapse: collapse; }
+
+        th {     font-size: 13px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
+    border-top: 4px solid #aabcfe;    border-bottom: 1px solid #fff; color: #039; }
+
+        td {    padding: 8px;     background: #e8edff;     border-bottom: 1px solid #fff;
+    color: #669;    border-top: 1px solid transparent; }
+
+        tr:hover td { background: #d0dafd; color: #339; }
+        
+    </style>
+  </head>
+  <body>
+    <!-- Elementos de HTML-->
+	<div id="misdatos">
+		<h1 style="color: red;"><strong>Proyecto Final: Mi venta de artículos</strong></h1>
+	</div>
+	<hr>
+
+	<div id="misdatos">
+		<button onclick="addTeclado()">Teclado $4,000</button>
+        <button onclick="addMouse()">Mouse $1,600</button>
+        <button onclick="addMonitor()">Monitor $8,200</button>
+        <button onclick="addPC()">PC $78,000</button>
+	</div>
+
+	<div class="container">
+		<table id="tabla" data-height="460" data-auto-refresh="true">
+			<thead>
+				<tr>
+					<th data-field="nombre">Nombre del producto</th>
+					<th data-field="precio">Precio</th>
+					<th data-field="des">Descuento</th>
+                    <th data-field="precioFinal">Precio Final</th>
+                    <th data-field="imagen">Imagen</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+    <br>
+    <br>
+    <br>
+
+	<div id="misdatos">
+		<h1>Ariel Rojas Garcia</h1>    
+		<h1>ariel.rojas3087@alumnos.udg.mx</h1>
+		<h1>Preparatoria San Jose del Valle</h1>
+		<h1>Programacion III</h1>
+        <h1>Prof. Angel Emmanuel Sanchez Cuenca</h1>
+        <h1>Copyright © Todos los derechos reservados</h1>
+	</div>
+	
+  </body>
+  <script>
+      	/* Javascript */   
+		$(function () {
+			$('#tabla').bootstrapTable({
+				data: datos,
+				formatNoMatches: function () {
+					return 'No hay datos';
+				}
+			});
+		});
+		
+		var datos = [];
+
+		function muestraDatos(){
+			$('#tabla').bootstrapTable('load', datos);
+		}
+
+		// Aqui abajo agrega tus funciones
+
+        function addTeclado(){
+
+            var des = prompt("Ingresa el descuento");
+
+            var teclado = {
+                nombre: "Teclado Apex Pro TKL",
+                precio: "$4,000 pesos",
+                des: "$" + des + " pesos",
+                precioFinal: 4000 - des + " pesos",
+                imagen: "<img width=\"100\" heigth=\"100\" src=\"https://media.steelseriescdn.com/thumbs/catalog/items/64626/e83ce335639e4635874e65fbd65f1ab6.png.1400x1120_q100_crop-fit_optimize.png\" >"
+            }
+
+            datos.push(teclado);
+            muestraDatos();
+        }
+
+        function addMouse(){
+
+            var des = prompt("Ingresa el descuento");
+
+            var mouse = {
+                nombre: "Mouse G Pro Wireless",
+                precio: "$1,600 pesos",
+                des: "$" + des + " pesos",
+                precioFinal: 1600 - des + " pesos",
+                imagen: "<img width=\"100\" heigth=\"100\" src=\"https://resource.logitech.com/content/dam/gaming/en/products/shroud/shroud-mouse-gallery-1.png\" >"
+            }
+
+            datos.push(mouse);
+            muestraDatos();
+        }
+
+        function addMonitor(){
+
+            var des = prompt("Ingresa el descuento");
+
+            var monitor = {
+                nombre: "Monitor BenQ Zowie XL2546K",
+                precio: "$8,200 pesos",
+                des: "$" + des + " pesos",
+                precioFinal: 8200 - des + " pesos",
+                imagen: "<img width=\"100\" heigth=\"100\" src=\"https://m.media-amazon.com/images/S/aplus-media/vc/06c775f7-ae0c-488f-b160-10b4d8046d24.__CR0,0,200,225_PT0_SX200_V1___.png\" >"
+            }
+
+            datos.push(monitor);
+            muestraDatos();
+        }
+
+        function addPC(){
+
+            var des = prompt("Ingresa el descuento");
+
+            var pc = {
+                nombre: "PC Gamer / GeForce RTX™ 4090",
+                precio: "$78,000 pesos",
+                des: "$" + des + " pesos",
+                precioFinal: 78000 - des + " pesos",
+                imagen: "<img width=\"100\" heigth=\"100\" src=\"https://i5.walmartimages.com.mx/mg/gm/3pp/asr/9b5b7e19-8c75-4b2f-91ea-8ab32bbb929f.907f502a37c23a866a00aff098115c2e.png?odnHeight=612&odnWidth=612&odnBg=FFFFFF\" >"
+            }
+
+            datos.push(pc);
+            muestraDatos();
+        }
+
+  </script>
+</html>
